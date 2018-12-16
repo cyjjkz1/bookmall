@@ -12,4 +12,24 @@ class Books(db.Model):
     details = db.Column(db.String(200), nullable=True)
     choicest = db.Column(db.Integer, default=1)
     has_goods = db.Column(db.Integer, default=1)
+    supply_id = db.Column(db.Integer, db.ForeignKey('suppliers.id'), nullable=False)
+    age_group_id = db.Column(db.Integer, db.ForeignKey('age_group.id', nullable=False))
+    function_category_id = db.Column(db.Integer, db.ForeignKey('function_category.id'))
+
+    def __init__(self, name, price, postage, details, choicest, has_goods, supply_id, age_group_id, function_category_id):
+        self.name = name
+        self.price = price
+        self.postage = postage
+        self.details = details
+        self.choicest = choicest
+        self.has_goods = has_goods
+        self.supply_id = supply_id
+        self.age_group_id = age_group_id
+        self.function_category_id = function_category_id
+
+    def __repr__(self):
+        pass
+
+
+
 
