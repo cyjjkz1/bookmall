@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="20e5ad95-30fe-4319-961f-8f8cf08f180d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/mall_v1_0/models/age_group.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/mall_v1_0/models/age_group.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/mall_v1_0/models/banner.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/mall_v1_0/models/banner.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/mall_v1_0/models/books.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/mall_v1_0/models/books.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/mall_v1_0/models/function_category.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/mall_v1_0/models/function_category.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/mall_v1_0/models/images.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/mall_v1_0/models/images.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -75,8 +71,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/mall_v1_0/models/books.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="27" column="56" selection-start-line="27" selection-start-column="56" selection-end-line="27" selection-end-column="56" />
+            <state relative-caret-position="96">
+              <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -130,7 +126,7 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="847" />
+    <option name="x" value="202" />
     <option name="y" value="23" />
     <option name="width" value="1400" />
     <option name="height" value="939" />
@@ -202,18 +198,18 @@
       <option name="presentableId" value="Default" />
       <updated>1544946052819</updated>
       <workItem from="1544946054150" duration="1015000" />
-      <workItem from="1544947115828" duration="4899000" />
+      <workItem from="1544947115828" duration="5255000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5914000" />
+    <option name="totallyTimeSpent" value="6270000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="247" y="23" width="1400" height="939" extended-state="0" />
+    <frame x="202" y="23" width="1400" height="939" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2533137" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2533137" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -227,7 +223,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50073636" side_tool="true" weight="0.3293979" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.4992636" visible="true" weight="0.3293979" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.4992636" visible="true" weight="0.3293979" />
       <window_info anchor="bottom" id="Python Console" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -317,8 +313,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/mall_v1_0/models/books.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="27" column="56" selection-start-line="27" selection-start-column="56" selection-end-line="27" selection-end-column="56" />
+        <state relative-caret-position="96">
+          <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
         </state>
       </provider>
     </entry>

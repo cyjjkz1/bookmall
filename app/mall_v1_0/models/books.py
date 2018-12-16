@@ -5,6 +5,7 @@ from app import db
 
 class Books(db.Model):
     __tablename__ = 'books'
+
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     name = db.Column(db.String(16), nullable=False)
     price = db.Column(db.String(16), nullable=False)
@@ -12,8 +13,8 @@ class Books(db.Model):
     details = db.Column(db.String(200), nullable=True)
     choicest = db.Column(db.Integer, default=1)
     has_goods = db.Column(db.Integer, default=1)
-    supply_id = db.Column(db.Integer, db.ForeignKey('suppliers.id'), nullable=False)
-    age_group_id = db.Column(db.Integer, db.ForeignKey('age_group.id', nullable=False))
+    supply_id = db.Column(db.Integer, db.ForeignKey('suppliers.id'))
+    age_group_id = db.Column(db.Integer, db.ForeignKey('age_group.id'))
     function_category_id = db.Column(db.Integer, db.ForeignKey('function_category.id'))
 
     def __init__(self, name, price, postage, details, choicest, has_goods, supply_id, age_group_id, function_category_id):
