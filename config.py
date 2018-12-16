@@ -10,25 +10,26 @@ PASSWORD = 'TianTian1121@@'
 HOSTNAME = 'localhost'
 DATABASE = 'bookmall'
 
+
 class Config:
     SQLALCHEMY_COMMIT_ON_TEARDOWN = True
     SQLALCHEMY_TRACK_MODIFICATIONS = True
     SQLALCHEMY_DATABASE_URI = "mysql+pymysql://{}:{}@{}/{}".format(USERNAME, PASSWORD, HOSTNAME, DATABASE)
 
+
 class DevelopmentConfig(Config):
     pass
 
+
 class TestingConfig(Config):
     pass
+
 
 class ProductionConfig(Config):
     pass
 
 
-
-
-
-config={
+config = {
     'development': DevelopmentConfig,
     'testing': TestingConfig,
     'production': ProductionConfig,

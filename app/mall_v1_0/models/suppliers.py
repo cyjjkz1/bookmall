@@ -1,5 +1,8 @@
 # -*- coding:utf-8 -*-
 
+from app import db
+
+
 class Suppliers(db.Model):
     __tablename__ = 'suppliers'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)

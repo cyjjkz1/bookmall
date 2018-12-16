@@ -2,6 +2,7 @@
 
 from app import db
 
+
 class Banner(db.Model):
     __tablename__ = 'banner'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)

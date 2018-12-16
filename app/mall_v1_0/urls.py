@@ -3,6 +3,7 @@
 from flask import Blueprint
 from flask_restful import Api
 from handlers.addbook import AddBook
+
 api_1_0 = Blueprint('api_1_0', __name__, url_prefix='/bookmall/v1.0')
 
 api = Api(api_1_0)
