@@ -11,7 +11,7 @@ class Supply(db.Model):
     mobile = db.Column(db.String(11), nullable=True)
     fast_mail_id = db.Column(db.Integer, nullable=False)
     address = db.Column(db.String(20), nullable=False)
-    books = db.relationship('book', backref='supplier')
+    books = db.relationship('Book', backref='supplier')
 
     def __init__(self, name, qq, mobile, fast_mail_id, address):
         self.name = name
