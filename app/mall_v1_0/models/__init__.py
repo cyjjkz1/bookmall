@@ -1,11 +1,12 @@
 #!/usr/bin/env python
 # -*- coding:utf-8 -*-
 
-from age_group import AgeGroup
+from category import AgeGroup, Function
 from banner import Banner
-from books import Books
-from function_category import FunctionCategory
-from images import Images
-from suppliers import Suppliers
+from book import Book
+from image import Image
+from supply import Supply
+
+
 
 

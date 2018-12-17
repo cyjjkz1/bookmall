@@ -4,10 +4,8 @@ from flask_restful import Resource
 from flask import jsonify
 
 
-class AddBook(Resource):
+class BannerList(Resource):
 
     def get(self):
-        return jsonify({'a': 'b', 'c': 'd'})
+        return jsonify({'list': 'list'})
 
-    def post(self):
-        pass

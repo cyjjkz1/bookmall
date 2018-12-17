@@ -3,8 +3,8 @@
 from app import db
 
 
-class Images(db.Model):
-    __tablename__ = 'images'
+class Image(db.Model):
+    __tablename__ = 'image'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     name = db.Column(db.String(30), nullable=False)
     book_id = db.Column(db.Integer, db.ForeignKey('books.id'))

@@ -8,6 +8,8 @@ api_1_0 = Blueprint('api_1_0', __name__, url_prefix='/bookmall/v1.0')
 
 api = Api(api_1_0)
 
+# 后台mis接口
 api.add_resource(AddBook, '/addbook', endpoint='addbook')
 
-
+# 前端mis接口
+app.add_re
