@@ -3,7 +3,7 @@
 
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-from config import config
+from config import config, InfoFilter
 
 
 db = SQLAlchemy()
@@ -21,6 +21,27 @@ def create_app(config_name):
     # 配置蓝图
     from app.mall_v1_0.urls import api_1_0
     app.register_blueprint(api_1_0)
+
+    import logging
+    from logging.handlers import RotatingFileHandler
+    # Formatter
+    formatter = logging.Formatter(
+        '%(asctime)s %(levelname)s %(process)d %(thread)d '
+        '%(pathname)s %(lineno)s %(message)s')
+
+    # FileHandler Info
+    file_handler_info = RotatingFileHandler(filename=config[config_name].LOG_PATH_INFO)
+    file_handler_info.setFormatter(formatter)
+    file_handler_info.setLevel(logging.INFO)
+    info_filter = InfoFilter()
+    file_handler_info.addFilter(info_filter)
+    app.logger.addHandler(file_handler_info)
+
+    # FileHandler Error
+    file_handler_error = RotatingFileHandler(filename=config[config_name].LOG_PATH_ERROR)
+    file_handler_error.setFormatter(formatter)
+    file_handler_error.setLevel(logging.ERROR)
+    app.logger.addHandler(file_handler_error)
 
     return app
 
