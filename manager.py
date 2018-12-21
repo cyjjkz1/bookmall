@@ -1,14 +1,14 @@
 #!/usr/bin/env python
 # -*- coding:utf-8 -*-
-from app import app, db
+from app import db, bmapp
 from flask_script import Manager, Command, Server
 from flask_migrate import Migrate, MigrateCommand
 from app.mall_v1_0 import models
 
 
-manager = Manager(app)
+manager = Manager(bmapp)
 
-migrate = Migrate(app, db)
+migrate = Migrate(bmapp, db)
 
 
 class CreateDB(Command):

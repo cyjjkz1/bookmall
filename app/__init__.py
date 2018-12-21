@@ -46,7 +46,7 @@ def create_app(config_name):
     return app
 
 
-app = create_app(os.getenv('FLASK_CONFIG') or 'default')
+bmapp = create_app(os.getenv('FLASK_CONFIG') or 'default')
 
 
 if __name__ == '__main__':

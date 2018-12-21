@@ -5,7 +5,7 @@ from flask import jsonify
 from ..models.category import AgeGroup, Function
 from app import db
 from ..utils.tools import retJsonData
-from app import app
+from app import bmapp as app
 
 
 # 添加分类，包括年龄分类和功能分类
