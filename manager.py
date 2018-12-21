@@ -18,10 +18,18 @@ class CreateDB(Command):
         db.create_all()
 
 
+class AddDB(Command):
+    def run(self):
+        ag = models.AgeGroup(name='0~2岁')
+        db.session.add(ag)
+        db.session.commit()
+
+
 # 自定义命令
 manager.add_command('createdb', CreateDB)
 manager.add_command('runserver', Server(host='0.0.0.0', port=9090))
 manager.add_command('db', MigrateCommand)
+manager.add_command('adddb', AddDB)
 
 if __name__ == '__main__':
     manager.run()
