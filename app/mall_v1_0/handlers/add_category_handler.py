@@ -5,7 +5,7 @@ from flask import jsonify
 from ..models.category import AgeGroup, Function
 from app import db
 from ..utils.tools import retJsonData
-from app import bmapp
+from flask import current_app as app
 
 
 # 添加分类，包括年龄分类和功能分类
@@ -23,7 +23,7 @@ class AddCategoryHandler(Resource):
             return retJsonData(repcd='4001', msg='缺少参数cate_type')
         if not cate_info['cate_name']:
             retJsonData(repcd='4001', msg='缺少参数cate_name')
-        bmapp.logger.info(jsonify(cate_info))
+        app.logger.info(jsonify(cate_info))
         try:
             if str(cate_info['cate_type']) == '1':
                 if cate_info['cate_name']:
@@ -38,17 +38,17 @@ class AddCategoryHandler(Resource):
             else:
                 # 添加功能分类
                 func = Function.query.filter_by(name=cate_info['cate_name'])
-                bmapp.logger.info('nothing')
+                app.logger.info('nothing')
                 if func:
                     retJsonData('1001', msg='这个分类已经添加')
                 else:
                     print 'insert a new'
-                    bmapp.logger.info('insert a new')
+                    app.logger.info('insert a new')
                     func = Function(name=cate_info['cate_name'])
                     db.session.add(func)
                     db.session.commit()
                     retJsonData('0000', msg='这个分类已经添加')
         except BaseException as e:
-            bmapp.logger.error(e)
+            app.logger.error(e)
             db.session.rollback()
 
