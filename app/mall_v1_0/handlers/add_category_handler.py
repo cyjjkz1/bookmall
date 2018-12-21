@@ -33,14 +33,18 @@ class AddCategoryHandler(Resource):
                     if func:
                         ag.functions.append(func)
                     db.session.add(ag)
+                    db.session.commit()
             else:
                 # 添加功能分类
                 func = Function.query.filter_by(name=cate_info['cate_name'])
                 if func:
                     retJsonData('1001', msg='这个分类已经添加')
                 else:
+                    print 'insert a new'
                     func = Function(name=cate_info['cate_name'])
                     db.session.add(func)
+                    db.session.commit()
+                    retJsonData('0000', msg='这个分类已经添加')
         except BaseException as e:
             logging.error(e)
             db.session.rollback()
