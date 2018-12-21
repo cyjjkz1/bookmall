@@ -4,7 +4,7 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from config import config, InfoFilter
-
+import os
 
 db = SQLAlchemy()
 
@@ -44,6 +44,9 @@ def create_app(config_name):
     app.logger.addHandler(file_handler_error)
 
     return app
+
+
+app = create_app(os.getenv('FLASK_CONFIG') or 'default')
 
 
 if __name__ == '__main__':
