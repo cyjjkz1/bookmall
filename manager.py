@@ -1,13 +1,10 @@
 #!/usr/bin/env python
 # -*- coding:utf-8 -*-
-import os
-from app import create_app, db
+from app import app, db
 from flask_script import Manager, Command, Server
 from flask_migrate import Migrate, MigrateCommand
 from app.mall_v1_0 import models
 
-
-app = create_app(os.getenv('FLASK_CONFIG') or 'default')
 
 manager = Manager(app)
 
