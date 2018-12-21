@@ -23,6 +23,7 @@ class AddCategoryHandler(Resource):
             return retJsonData(repcd='4001', msg='缺少参数cate_type')
         if not cate_info['cate_name']:
             retJsonData(repcd='4001', msg='缺少参数cate_name')
+        logging.info(jsonify(cate_info))
         try:
             if str(cate_info['cate_type']) == '1':
                 if cate_info['cate_name']:
@@ -37,10 +38,12 @@ class AddCategoryHandler(Resource):
             else:
                 # 添加功能分类
                 func = Function.query.filter_by(name=cate_info['cate_name'])
+                logging.info('nothing')
                 if func:
                     retJsonData('1001', msg='这个分类已经添加')
                 else:
                     print 'insert a new'
+                    logging.info('insert a new')
                     func = Function(name=cate_info['cate_name'])
                     db.session.add(func)
                     db.session.commit()
