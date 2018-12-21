@@ -16,7 +16,6 @@ class Book(db.Model):
     supply_id = db.Column(db.Integer, db.ForeignKey('supply.id'))
     age_group_id = db.Column(db.Integer, db.ForeignKey('age_group.id'))
     function_id = db.Column(db.Integer, db.ForeignKey('function.id'))
-    images = db.relationship('image', backref='image_i')
 
     def __init__(self, name, price, postage, details, choicest, has_goods, supply_id, age_group_id, function_category_id):
         self.name = name
