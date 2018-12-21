@@ -13,7 +13,6 @@ class AgeGroup(db.Model):
 
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     name = db.Column(db.String(10), nullable=False)
-    books = db.relationship('Book', backref='age_group_i')
     functions = db.relationship('Function',
                                 secondary=func_age,
                                 backref=db.backref('age_group', lazy='dynamic'),
@@ -28,7 +27,6 @@ class Function(db.Model):
 
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     name = db.Column(db.String(10), nullable=False)
-    books = db.relationship('Book', backref='function_i')
 
     def __init__(self, name):
         self.name = name
