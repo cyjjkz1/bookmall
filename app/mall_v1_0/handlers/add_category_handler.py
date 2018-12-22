@@ -19,12 +19,13 @@ class AddCategoryHandler(Resource):
 
     def post(self):
         cate_info = request.get_json()
+        return retJsonData(repcd='4001', msg='nothing')
         if not cate_info['cate_type']:
             return retJsonData(repcd='4001', msg='缺少参数cate_type')
         if not cate_info['cate_name']:
             retJsonData(repcd='4001', msg='缺少参数cate_name')
-        app.logger.info(jsonify(cate_info))
         try:
+            app.logger.error('--------------------------------')
             if str(cate_info['cate_type']) == '1':
                 if cate_info['cate_name']:
                     ag = AgeGroup.query.filter_by(name=cate_info['cate_name'])
@@ -40,9 +41,10 @@ class AddCategoryHandler(Resource):
                 func = Function.query.filter_by(name=cate_info['cate_name'])
                 app.logger.info('nothing')
                 if func:
+                    app.logger.error('@@@@@@@@@@@@@@@@@@@@@@@@@@')
                     retJsonData('1001', msg='这个分类已经添加')
                 else:
-                    print 'insert a new'
+                    app.logger.info('-----------------------------')
                     app.logger.info('insert a new')
                     func = Function(name=cate_info['cate_name'])
                     db.session.add(func)
