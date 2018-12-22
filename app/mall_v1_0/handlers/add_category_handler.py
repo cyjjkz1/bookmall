@@ -23,7 +23,7 @@ class AddCategoryHandler(Resource):
             return retJsonData(repcd='4001', msg='缺少参数cate_type')
         if not cate_info['cate_name']:
             retJsonData(repcd='4001', msg='缺少参数cate_name')
-        app.logger.info(jsonify(cate_info))
+        app.logger.info('------------------------------')
         try:
             if str(cate_info['cate_type']) == '1':
                 if cate_info['cate_name']:
@@ -49,6 +49,6 @@ class AddCategoryHandler(Resource):
                     db.session.commit()
                     retJsonData('0000', msg='这个分类已经添加')
         except BaseException as e:
-            app.logger.error(e)
+            app.logger.exception(e)
             db.session.rollback()
 
