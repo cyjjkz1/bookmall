@@ -31,15 +31,7 @@ def create_app(config_name):
     file_handler_info = RotatingFileHandler(filename=config[config_name].LOG_PATH_INFO)
     file_handler_info.setFormatter(formatter)
     file_handler_info.setLevel(logging.INFO)
-    info_filter = InfoFilter()
-    file_handler_info.addFilter(info_filter)
     app.logger.addHandler(file_handler_info)
-
-    # FileHandler Error
-    file_handler_error = RotatingFileHandler(filename=config[config_name].LOG_PATH_ERROR)
-    file_handler_error.setFormatter(formatter)
-    file_handler_error.setLevel(logging.ERROR)
-    app.logger.addHandler(file_handler_error)
 
     return app
 

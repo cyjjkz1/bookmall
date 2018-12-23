@@ -11,20 +11,6 @@ HOSTNAME = 'localhost'
 DATABASE = 'bookmall'
 
 
-class InfoFilter(logging.Filter):
-    def filter(self, record):
-        '''
-        only use INFO
-        筛选，只需要INFO级别的log
-        :param record:
-        :return:
-        '''
-        if logging.INFO <= record.levelno < logging.ERROR:
-            return super(InfoFilter,self).filter(record)
-        else:
-            return 0
-
-
 class Config:
     SQLALCHEMY_COMMIT_ON_TEARDOWN = True
     SQLALCHEMY_TRACK_MODIFICATIONS = True
