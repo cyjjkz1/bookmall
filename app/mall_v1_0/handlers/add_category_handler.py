@@ -19,12 +19,13 @@ class AddCategoryHandler(Resource):
 
     def post(self):
         cate_info = request.get_json()
+        app.logger.info('---------------------------')
         if not cate_info['cate_type']:
             return retJsonData(repcd='4001', msg='缺少参数cate_type')
         if not cate_info['cate_name']:
             retJsonData(repcd='4001', msg='缺少参数cate_name')
         try:
-            app.logger.error('--------------------------------')
+            app.logger.info('--------------------------------')
             if str(cate_info['cate_type']) == '1':
                 if cate_info['cate_name']:
                     ag = AgeGroup.query.filter_by(name=cate_info['cate_name'])
