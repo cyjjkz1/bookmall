@@ -19,7 +19,6 @@ class AddCategoryHandler(Resource):
 
     def post(self):
         cate_info = request.get_json()
-        return retJsonData(repcd='4001', msg='nothing')
         if not cate_info['cate_type']:
             return retJsonData(repcd='4001', msg='缺少参数cate_type')
         if not cate_info['cate_name']:
