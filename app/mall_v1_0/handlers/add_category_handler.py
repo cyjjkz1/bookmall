@@ -39,9 +39,9 @@ class AddCategoryHandler(Resource):
             else:
                 # 添加功能分类
                 func = Function.query.filter_by(name=cate_info['cate_name'])
-                app.logger.info('nothing')
+                app.logger.info('nothing %s' % func)
                 if func:
-                    app.logger.error('@@@@@@@@@@@@@@@@@@@@@@@@@@')
+                    app.logger.info('@@@@@@@@@@@@@@@@@@@@@@@@@@')
                     retJsonData('1001', msg='这个分类已经添加')
                 else:
                     app.logger.info('-----------------------------')
