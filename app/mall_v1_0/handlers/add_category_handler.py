@@ -16,6 +16,11 @@ class AddCategoryHandler(Resource):
         cate_name 分类名字
         cate_func_id 选传
     '''
+    def get(self):
+        app.logger.info('---------------info 1')
+        app.logger.error('---------------error 2')
+        app.logger.warning('--------------warning 3')
+        return jsonify({'a': 'b'})
 
     def post(self):
         cate_info = request.get_json()

@@ -3,7 +3,7 @@
 
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-from config import config, InfoFilter
+from config import config
 
 db = SQLAlchemy()
 
@@ -30,9 +30,9 @@ def create_app(config_name):
     # FileHandler Info
     file_handler_info = RotatingFileHandler(filename=config[config_name].LOG_PATH_INFO)
     file_handler_info.setFormatter(formatter)
-    file_handler_info.setLevel(logging.INFO)
+    file_handler_info.setLevel(logging.DEBUG)
     app.logger.addHandler(file_handler_info)
-
+    app.logger.setLevel(logging.INFO)
     return app
 
 
