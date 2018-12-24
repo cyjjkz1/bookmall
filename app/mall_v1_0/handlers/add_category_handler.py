@@ -17,39 +17,44 @@ class AddCategoryHandler(Resource):
         cate_func_id 选传
     '''
 
-    def post(self):
-        cate_info = request.get_json()
-        app.logger.info('---------------------------')
-        if not cate_info['cate_type']:
-            return retJsonData(repcd='4001', msg='缺少参数cate_type')
-        if not cate_info['cate_name']:
-            retJsonData(repcd='4001', msg='缺少参数cate_name')
-        try:
-            app.logger.info('--------------------------------')
-            if str(cate_info['cate_type']) == '1':
-                if cate_info['cate_name']:
-                    ag = AgeGroup.query.filter_by(name=cate_info['cate_name'])
-                    if not ag:
-                        ag = AgeGroup(name=cate_info['cate_name'])
-                    func = Function.query.filter_by(id=cate_info['cate_func_id'])
-                    if func:
-                        ag.functions.append(func)
-                    db.session.add(ag)
-                    db.session.commit()
-            else:
-                # 添加功能分类
-                func = Function.query.filter_by(name=cate_info['cate_name'])
-                app.logger.info('nothing %s' % func)
-                if func:
-                    app.logger.info('@@@@@@@@@@@@@@@@@@@@@@@@@@')
-                    retJsonData('1001', msg='这个分类已经添加')
-                else:
-                    app.logger.info('-----------------------------')
-                    app.logger.info('insert a new')
-                    func = Function(name=cate_info['cate_name'])
-                    db.session.add(func)
-                    db.session.commit()
-                    retJsonData('0000', msg='这个分类已经添加')
-        except BaseException as e:
-            db.session.rollback()
+    def get(self):
+        app.logger.info('info -1')
+        app.logger.error('error -2')
+        app.logger.warning('warning -3')
 
+    def post(self):
+        # cate_info = request.get_json()
+        app.logger.info('---------------------------')
+        # if not cate_info['cate_type']:
+        #     return retJsonData(repcd='4001', msg='缺少参数cate_type')
+        # if not cate_info['cate_name']:
+        #     retJsonData(repcd='4001', msg='缺少参数cate_name')
+        # try:
+        #     app.logger.info('--------------------------------')
+        #     if str(cate_info['cate_type']) == '1':
+        #         if cate_info['cate_name']:
+        #             ag = AgeGroup.query.filter_by(name=cate_info['cate_name'])
+        #             if not ag:
+        #                 ag = AgeGroup(name=cate_info['cate_name'])
+        #             func = Function.query.filter_by(id=cate_info['cate_func_id'])
+        #             if func:
+        #                 ag.functions.append(func)
+        #             db.session.add(ag)
+        #             db.session.commit()
+        #     else:
+        #         # 添加功能分类
+        #         func = Function.query.filter_by(name=cate_info['cate_name'])
+        #         app.logger.info('nothing %s' % func)
+        #         if func:
+        #             app.logger.info('@@@@@@@@@@@@@@@@@@@@@@@@@@')
+        #             retJsonData('1001', msg='这个分类已经添加')
+        #         else:
+        #             app.logger.info('-----------------------------')
+        #             app.logger.info('insert a new')
+        #             func = Function(name=cate_info['cate_name'])
+        #             db.session.add(func)
+        #             db.session.commit()
+        #             retJsonData('0000', msg='这个分类已经添加')
+        except BaseException as e:
+            # db.session.rollback()
+            app.logger.error(e.de)
