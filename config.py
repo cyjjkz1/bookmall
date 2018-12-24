@@ -17,8 +17,7 @@ class Config:
     SQLALCHEMY_DATABASE_URI = "mysql+pymysql://{}:{}@{}/{}".format(USERNAME, PASSWORD, HOSTNAME, DATABASE)
 
     LOG_PATH = os.path.join(basedir, 'logs')
-    LOG_PATH_ERROR = os.path.join(LOG_PATH, 'error.log')
-    LOG_PATH_INFO = os.path.join(LOG_PATH, 'info.log')
+    LOG_PATH_INFO = os.path.join(LOG_PATH, 'bookmall.log')
     LOG_FILE_MAX_BYTES = 100 * 1024 * 1024
 
     # 轮转数量是10个
