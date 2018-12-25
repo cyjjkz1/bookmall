@@ -3,8 +3,8 @@
 from app import db
 
 func_age = db.Table('func_age',
-                    db.Column('func_id', db.Integer, db.ForeignKey('function.id')),
-                    db.Column('age_id', db.Integer, db.ForeignKey('age_group.id'))
+                    db.Column('func_id', db.Integer, db.ForeignKey('function.id'), primary_key=True),
+                    db.Column('age_id', db.Integer, db.ForeignKey('age_group.id'), primary_key=True)
                     )
 
 

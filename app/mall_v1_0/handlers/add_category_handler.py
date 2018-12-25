@@ -42,6 +42,8 @@ class AddCategoryHandler(Resource):
                         app.logger.info('新添加一个ageGroup %s', cate_info['cate_name'])
                         ag = AgeGroup(name=cate_info['cate_name'])
                     else:
+                        # 已经添加，直接添加功能分类
+                        
                         return retJsonData(repcd='1001', msg='%s --> 这个年龄段已经添加' % cate_info['cate_name'])
 
                     func = Function.query.filter_by(id=cate_info['cate_func_id']).first()
