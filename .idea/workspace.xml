@@ -74,8 +74,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/mall_v1_0/handlers/add_category_handler.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="625">
-              <caret line="45" column="24" selection-start-line="45" selection-start-column="24" selection-end-line="45" selection-end-column="24" />
+            <state relative-caret-position="360">
+              <caret line="40" column="30" lean-forward="true" selection-start-line="40" selection-start-column="30" selection-end-line="40" selection-end-column="30" />
               <folding>
                 <element signature="e#23#48#0" expanded="true" />
               </folding>
@@ -86,8 +86,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/mall_v1_0/models/category.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="456">
-              <caret line="24" column="24" selection-start-line="24" selection-start-column="24" selection-end-line="24" selection-end-column="24" />
+            <state relative-caret-position="266">
+              <caret line="14" column="51" lean-forward="true" selection-start-line="14" selection-start-column="51" selection-end-line="14" selection-end-column="51" />
             </state>
           </provider>
         </entry>
@@ -161,20 +161,20 @@
         <option value="$PROJECT_DIR$/app/mall_v1_0/urls.py" />
         <option value="$PROJECT_DIR$/app/mall_v1_0/utils/__init__.py" />
         <option value="$PROJECT_DIR$/app/mall_v1_0/utils/tools.py" />
-        <option value="$PROJECT_DIR$/app/mall_v1_0/models/category.py" />
         <option value="$PROJECT_DIR$/app/mall_v1_0/models/book.py" />
         <option value="$PROJECT_DIR$/manager.py" />
         <option value="$PROJECT_DIR$/app/__init__.py" />
         <option value="$PROJECT_DIR$/config.py" />
+        <option value="$PROJECT_DIR$/app/mall_v1_0/models/category.py" />
         <option value="$PROJECT_DIR$/app/mall_v1_0/handlers/add_category_handler.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="124" />
+    <option name="x" value="502" />
     <option name="y" value="23" />
     <option name="width" value="1588" />
-    <option name="height" value="980" />
+    <option name="height" value="979" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -205,6 +205,13 @@
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="mall_v1_0" type="462c0819:PsiDirectoryNode" />
               <item name="handlers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bookmall" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bookmall" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="mall_v1_0" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -281,15 +288,15 @@
       <workItem from="1545399625291" duration="10657000" />
       <workItem from="1545449542276" duration="5637000" />
       <workItem from="1545633982182" duration="3534000" />
-      <workItem from="1545704697155" duration="347000" />
+      <workItem from="1545704697155" duration="1125000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="54532000" />
+    <option name="totallyTimeSpent" value="55310000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="124" y="23" width="1588" height="980" extended-state="0" />
+    <frame x="192" y="23" width="1588" height="979" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2522639" />
@@ -306,7 +313,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50073636" side_tool="true" weight="0.3293979" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.4992636" visible="true" weight="0.14301802" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.4992636" visible="true" weight="0.14317925" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.32912987" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -423,13 +430,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/mall_v1_0/models/category.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="24" column="24" selection-start-line="24" selection-start-column="24" selection-end-line="24" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/mall_v1_0/handlers/alter_detial_handler.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="57">
@@ -450,10 +450,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/mall_v1_0/models/category.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="14" column="51" lean-forward="true" selection-start-line="14" selection-start-column="51" selection-end-line="14" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/mall_v1_0/handlers/add_category_handler.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="625">
-          <caret line="45" column="24" selection-start-line="45" selection-start-column="24" selection-end-line="45" selection-end-column="24" />
+        <state relative-caret-position="360">
+          <caret line="40" column="30" lean-forward="true" selection-start-line="40" selection-start-column="30" selection-end-line="40" selection-end-column="30" />
           <folding>
             <element signature="e#23#48#0" expanded="true" />
           </folding>
