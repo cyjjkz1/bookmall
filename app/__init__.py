@@ -12,7 +12,7 @@ def create_app(config_name):
     app = Flask(__name__)
     # 应用配置
     app.config.from_object(config[config_name])
-
+    app.config['JSON_AS_ASCII'] = False
     # 配置数据库
     db.init_app(app)
 
