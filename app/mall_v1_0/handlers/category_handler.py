@@ -6,6 +6,7 @@ from app import db
 from ..utils.tools import retJsonData
 from flask import current_app as app
 
+
 # 添加分类，包括年龄分类和功能分类
 class AddCategoryHandler(Resource):
     '''
@@ -19,7 +20,6 @@ class AddCategoryHandler(Resource):
         try:
             app.logger.info('params(%s)', request.data)
             cate_info = request.json
-            app.logger.info('params()')
         except Exception as e:
             app.logger.info('没有获取到任何参数')
             app.logger.exception(e)
@@ -70,3 +70,19 @@ class AddCategoryHandler(Resource):
         except BaseException as e:
             db.session.rollback()
             app.logger.exception(e)
+
+
+class CategoryList(Resource):
+    '''
+    分类查询,
+    :type 0 查询所有 1 查询年龄分类 2 查询功能分类
+    :key
+    '''
+    def get(self):
+        try:
+            app.logger.info('params(%s)', request.args)
+            query_info = request.args
+        except Exception as e:
+            app.logger.info('没有获取到任何参数')
+            app.logger.exception(e)
+        return retJsonData(repcd='0000', msg='请求成功', param=query_info)
