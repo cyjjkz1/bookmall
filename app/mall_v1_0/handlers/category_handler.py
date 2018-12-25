@@ -16,6 +16,7 @@ class AddCategoryHandler(Resource):
         cate_func_id 选传
     '''
 
+    @staticmethod
     def post(self):
         try:
             app.logger.info('params(%s)', request.data)
@@ -73,11 +74,14 @@ class AddCategoryHandler(Resource):
 
 
 class CategoryList(Resource):
+
     '''
     分类查询,
     :type 0 查询所有 1 查询年龄分类 2 查询功能分类
     :key
     '''
+
+    @staticmethod
     def get(self):
         try:
             app.logger.info('params(%s)', request.args)
@@ -85,4 +89,24 @@ class CategoryList(Resource):
         except Exception as e:
             app.logger.info('没有获取到任何参数')
             app.logger.exception(e)
-        return retJsonData(repcd='0000', msg='请求成功', param=query_info)
+
+        qtype = str(query_info['type'])
+        if not type:
+            return retJsonData(repcd='4001', msg='缺少查询类型参数 type')
+        if type == '0':
+            # 查询所有的年龄分类和所属功能分类
+            ags = AgeGroup.query.all()
+            agsArr = []
+            if ags is not None and len(ags) != 0:
+                for ag in ags:
+                    agsArr.append(ag.model_to_dict())
+
+            return retJsonData(repcd='0000', msg='请求成功', param=agsArr)
+        elif type == '1':
+            # 查询所有的年龄分类
+            pass
+        elif type == '2':
+            # 查询所有功能分类
+            pass
+        else:
+            pass
