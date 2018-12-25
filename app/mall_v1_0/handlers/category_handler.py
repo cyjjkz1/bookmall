@@ -1,12 +1,10 @@
 # -*- coding:utf-8 -*-
 from flask import request
 from flask_restful import Resource
-from flask import jsonify
 from ..models.category import AgeGroup, Function
 from app import db
 from ..utils.tools import retJsonData
 from flask import current_app as app
-import json
 
 # 添加分类，包括年龄分类和功能分类
 class AddCategoryHandler(Resource):
