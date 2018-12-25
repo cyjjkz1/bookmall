@@ -16,7 +16,6 @@ class AddCategoryHandler(Resource):
         cate_func_id 选传
     '''
 
-    @staticmethod
     def post(self):
         try:
             app.logger.info('params(%s)', request.data)
@@ -81,7 +80,6 @@ class CategoryList(Resource):
     :key
     '''
 
-    @staticmethod
     def get(self):
         try:
             app.logger.info('params(%s)', request.args)
@@ -91,21 +89,22 @@ class CategoryList(Resource):
             app.logger.exception(e)
 
         qtype = str(query_info['type'])
-        if not type:
+        if not qtype:
             return retJsonData(repcd='4001', msg='缺少查询类型参数 type')
-        if type == '0':
+        if qtype == '0':
             # 查询所有的年龄分类和所属功能分类
             ags = AgeGroup.query.all()
+            app.logger.info('type ags %s' % type(ags))
             agsArr = []
-            if ags is not None and len(ags) != 0:
+            if ags is not None:
                 for ag in ags:
                     agsArr.append(ag.model_to_dict())
 
             return retJsonData(repcd='0000', msg='请求成功', param=agsArr)
-        elif type == '1':
+        elif qtype == '1':
             # 查询所有的年龄分类
             pass
-        elif type == '2':
+        elif qtype == '2':
             # 查询所有功能分类
             pass
         else:

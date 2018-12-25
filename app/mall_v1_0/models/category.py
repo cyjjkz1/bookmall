@@ -17,7 +17,7 @@ class AgeGroup(db.Model):
                                 secondary=func_age,
                                 backref=db.backref('age_group', lazy='dynamic'),
                                 lazy='dynamic')
-    
+
     def __init__(self, name):
         self.name = name
 
@@ -27,10 +27,10 @@ class AgeGroup(db.Model):
             'name': self.name
         }
         funcArr = [];
-        if self.functions is not None and len(self.functions) != 0:
+        if self.functions is not None:
             for func in self.functions:
                 funcArr.append(func.model_to_dict())
-        mt_dict['functions'] = func
+        mt_dict['functions'] = funcArr
         return mt_dict
 
 
