@@ -15,7 +15,7 @@ api = Api(api_1_0)
 api.add_resource(AddBookHandler, '/book/add', endpoint='add_book')
 api.add_resource(AlterDetialHandler, '/book/alter', endpoint='modify_book')
 api.add_resource(AddCategoryHandler, '/category/add', endpoint='add_category')
-api.add_resource(CategoryList, '/category/list', endpoint='category_list')
+api.add_resource(CategoryList, '/category/query', endpoint='category_query')
 
 # api.add_resource(RemoveBook, '/removebook', endpoint='removebook')
 # api.add_resource(BookDetail, '/querybook', endpoint='querybook')
