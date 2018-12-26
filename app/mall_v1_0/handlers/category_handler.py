@@ -96,16 +96,25 @@ class CategoryList(Resource):
             ags = AgeGroup.query.all()
             app.logger.info('type ags %s' % type(ags))
             agsArr = []
-            if ags is not None:
+            if (ags is not None) and (len(ags) != 0):
                 for ag in ags:
                     agsArr.append(ag.model_to_dict())
 
             return retJsonData(repcd='0000', msg='请求成功', param=agsArr)
         elif qtype == '1':
             # 查询所有的年龄分类
-            pass
+            key = query_info['key']
+            ags = AgeGroup.query.filter(AgeGroup.name.like("%%" + key + "%%") if key is not None else "").all()
+            app.logger.info('-------> %s' % len(ags))
+            agsArr = []
+            if ags is not None and len(ags) != 0:
+                for ag in ags:
+                    agsArr.append(ag.model_to_dict())
+            return retJsonData(repcd='0000', msg='请求成功', param=agsArr)
         elif qtype == '2':
             # 查询所有功能分类
+            #key = query_info['key']
+            #funcs = Function.query.filter(Function.name.like(""))
             pass
         else:
             pass

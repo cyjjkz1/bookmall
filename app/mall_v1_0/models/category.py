@@ -1,7 +1,7 @@
 # -*- coding:utf-8 -*-
 
 from app import db
-
+from flask import current_app as app
 func_age = db.Table('func_age',
                     db.Column('func_id', db.Integer, db.ForeignKey('function.id'), primary_key=True),
                     db.Column('age_id', db.Integer, db.ForeignKey('age_group.id'), primary_key=True)
@@ -27,7 +27,7 @@ class AgeGroup(db.Model):
             'name': self.name
         }
         funcArr = [];
-        if self.functions is not None:
+        if (self.functions is not None):
             for func in self.functions:
                 funcArr.append(func.model_to_dict())
         mt_dict['functions'] = funcArr
