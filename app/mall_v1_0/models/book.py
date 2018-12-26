@@ -16,8 +16,9 @@ class Book(db.Model):
     supply_id = db.Column(db.Integer, db.ForeignKey('supply.id'))
     age_group_id = db.Column(db.Integer, db.ForeignKey('age_group.id'))
     function_id = db.Column(db.Integer, db.ForeignKey('function.id'))
+    images = db.relationship('Image', backref='book_id', lazy='dynamic')
 
-    def __init__(self, name, price, postage, details, choicest, has_goods, supply_id, age_group_id, function_category_id):
+    def __init__(self, name, price, postage, details, choicest, has_goods, supply_id, age_group_id, function_id):
         self.name = name
         self.price = price
         self.postage = postage
@@ -26,11 +27,28 @@ class Book(db.Model):
         self.has_goods = has_goods
         self.supply_id = supply_id
         self.age_group_id = age_group_id
-        self.function_category_id = function_category_id
+        self.function_id = function_id
 
     def __repr__(self):
         pass
 
-
+    def model_to_dict(self):
+        book_dict = {
+            'id': self.id,
+            'name': self.name,
+            'price': self.price,
+            'details': self.details,
+            'choicest': self.choicest,
+            'has_goods': self.has_goods,
+            'supply_id': self.supply_id,
+            'age_group_id': self.age_group_id,
+            'function_id': self.function_id
+        }
+        imageArr = []
+        if (self.images is not None):
+            for image in self.images:
+                imageArr.append(image.model_to_dict())
+        book_dict['image'] = imageArr
+        return book_dict
 
 

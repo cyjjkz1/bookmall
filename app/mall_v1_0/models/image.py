@@ -8,11 +8,15 @@ class Image(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     name = db.Column(db.String(30), nullable=False)
     book_id = db.Column(db.Integer, db.ForeignKey('book.id'))
-    c_time = db.Column(db.Date, nullable=False)
 
-    def __init__(self, name, book_id,c_time):
+    def __init__(self, name, book_id):
         self.name = name
         self.book_id = book_id
-        self.c_time = c_time
 
+    def model_to_dict(self):
+        img_dict = {
+            'id': self.id,
+            'name': self.name,
+        }
+        return img_dict
 

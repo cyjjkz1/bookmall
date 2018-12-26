@@ -105,7 +105,6 @@ class CategoryList(Resource):
             # 查询所有的年龄分类
             key = query_info['key']
             ags = AgeGroup.query.filter(AgeGroup.name.like("%%" + key + "%%") if key is not None else "").all()
-            app.logger.info('-------> %s' % len(ags))
             agsArr = []
             if ags is not None and len(ags) != 0:
                 for ag in ags:
@@ -113,8 +112,12 @@ class CategoryList(Resource):
             return retJsonData(repcd='0000', msg='请求成功', param=agsArr)
         elif qtype == '2':
             # 查询所有功能分类
-            #key = query_info['key']
-            #funcs = Function.query.filter(Function.name.like(""))
-            pass
+            key = query_info['key']
+            funcs = Function.query.filter(Function.name.like("%%" + key + "%%") if key is not None else "").all()
+            funcArr = []
+            if funcs is not None and len(funcs) != 0:
+                for func in funcs:
+                    funcArr.append(func.model_to_dict())
+            return retJsonData(repcd='0000', msg='请求成功', param=funcArr)
         else:
             pass
