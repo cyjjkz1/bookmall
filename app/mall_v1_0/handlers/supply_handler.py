@@ -31,7 +31,7 @@ class SupplyHandler(Resource):
         id = db.Column(db.Integer, primary_key=True, autoincrement=True)
         name = db.Column(db.String(30), nullable=False)
         mobile = db.Column(db.String(11), nullable=True)
-        fast_mail_id = db.Column(db.Integer, nullable=False)
+        fast_mail = db.Column(db.Integer, nullable=False)
         address = db.Column(db.String(20), nullable=False)
         :param
         :return:

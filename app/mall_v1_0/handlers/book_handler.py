@@ -29,7 +29,6 @@ class BookHandler(Resource):
         else:
             return retJsonData(repcd='0000', msg='请求成功', param=book.model_to_dict())
 
-
     def post(self):
         '''
         id = db.Column(db.Integer, primary_key=True, autoincrement=True)
