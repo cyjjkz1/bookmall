@@ -24,13 +24,13 @@ class AddCategoryHandler(Resource):
             app.logger.info('没有获取到任何参数')
             app.logger.exception(e)
 
-        if not cate_info['cate_type']:
-            app.logger.info('params: 缺少参数 %s' % 'cate_type')
-            return retJsonData(repcd='4001', msg='缺少参数cate_type')
-        if not cate_info['cate_name']:
-            app.logger.info('params: 缺少参数 %s' % 'cate_name')
-            return retJsonData(repcd='4001', msg='缺少参数cate_name')
-        try:
+            if not cate_info['cate_type']:
+                app.logger.info('params: 缺少参数 %s' % 'cate_type')
+                return retJsonData(repcd='4001', msg='缺少参数cate_type')
+            if not cate_info['cate_name']:
+                app.logger.info('params: 缺少参数 %s' % 'cate_name')
+                return retJsonData(repcd='4001', msg='缺少参数cate_name')
+
             if str(cate_info['cate_type']) == '1':
                 if not cate_info['cate_func_id']:
                     return retJsonData(repcd='4001', msg='缺少参数cate_id')
@@ -67,6 +67,8 @@ class AddCategoryHandler(Resource):
                     db.session.flush()
                     db.session.commit()
                     return retJsonData('0000', msg='分类添加成功', param={'func_id': func.id})
+        except KeyError as e:
+            app.logger.exception(e)
         except BaseException as e:
             db.session.rollback()
             app.logger.exception(e)
@@ -84,40 +86,41 @@ class CategoryList(Resource):
         try:
             app.logger.info('params(%s)', request.args)
             query_info = request.args
-        except Exception as e:
-            app.logger.info('没有获取到任何参数')
+            qtype = str(query_info['type'])
+            if not qtype:
+                return retJsonData(repcd='4001', msg='缺少查询类型参数 type')
+            if qtype == '0':
+                # 查询所有的年龄分类和所属功能分类
+                ags = AgeGroup.query.all()
+                app.logger.info('type ags %s' % type(ags))
+                agsArr = []
+                if (ags is not None) and (len(ags) != 0):
+                    for ag in ags:
+                        agsArr.append(ag.model_to_dict())
+
+                return retJsonData(repcd='0000', msg='请求成功', param=agsArr)
+            elif qtype == '1':
+                # 查询所有的年龄分类
+                key = query_info['key']
+                ags = AgeGroup.query.filter(AgeGroup.name.like("%%" + key + "%%") if key is not None else "").all()
+                agsArr = []
+                if ags is not None and len(ags) != 0:
+                    for ag in ags:
+                        agsArr.append(ag.model_to_dict())
+                return retJsonData(repcd='0000', msg='请求成功', param=agsArr)
+            elif qtype == '2':
+                # 查询所有功能分类
+                key = query_info['key']
+                funcs = Function.query.filter(Function.name.like("%%" + key + "%%") if key is not None else "").all()
+                funcArr = []
+                if funcs is not None and len(funcs) != 0:
+                    for func in funcs:
+                        funcArr.append(func.model_to_dict())
+                return retJsonData(repcd='0000', msg='请求成功', param=funcArr)
+            else:
+                pass
+        except KeyError as e:
+            app.logger.info('解析参数异常')
             app.logger.exception(e)
-
-        qtype = str(query_info['type'])
-        if not qtype:
-            return retJsonData(repcd='4001', msg='缺少查询类型参数 type')
-        if qtype == '0':
-            # 查询所有的年龄分类和所属功能分类
-            ags = AgeGroup.query.all()
-            app.logger.info('type ags %s' % type(ags))
-            agsArr = []
-            if (ags is not None) and (len(ags) != 0):
-                for ag in ags:
-                    agsArr.append(ag.model_to_dict())
-
-            return retJsonData(repcd='0000', msg='请求成功', param=agsArr)
-        elif qtype == '1':
-            # 查询所有的年龄分类
-            key = query_info['key']
-            ags = AgeGroup.query.filter(AgeGroup.name.like("%%" + key + "%%") if key is not None else "").all()
-            agsArr = []
-            if ags is not None and len(ags) != 0:
-                for ag in ags:
-                    agsArr.append(ag.model_to_dict())
-            return retJsonData(repcd='0000', msg='请求成功', param=agsArr)
-        elif qtype == '2':
-            # 查询所有功能分类
-            key = query_info['key']
-            funcs = Function.query.filter(Function.name.like("%%" + key + "%%") if key is not None else "").all()
-            funcArr = []
-            if funcs is not None and len(funcs) != 0:
-                for func in funcs:
-                    funcArr.append(func.model_to_dict())
-            return retJsonData(repcd='0000', msg='请求成功', param=funcArr)
-        else:
-            pass
+        except BaseException as e:
+            app.logger.exception(e)

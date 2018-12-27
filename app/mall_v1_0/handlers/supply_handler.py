@@ -39,31 +39,35 @@ class SupplyHandler(Resource):
         try:
             app.logger.info('params(%s)', request.data)
             book_info = request.json
-        except Exception as e:
-            app.logger.info('没有获取到任何参数')
-            app.logger.exception(e)
-        msg = ''
-        if not book_info['name']:
-            app.logger.info('params: 缺少参数 %s' % 'name')
-            msg = '缺少参数' + msg + ' name'
-        if not book_info['mobile']:
-            app.logger.info('params: 缺少参数 %s' % 'mobile')
-            msg = msg + ' mobile'
-        if not book_info['fast_mail_id']:
-            app.logger.info('params: 缺少参数 %s' % 'fast_mail_id')
-            msg = msg + ' fast_mail_id'
-        if not book_info['address']:
-            app.logger.info('params: 缺少参数 %s' % 'address')
-            msg = msg + ' address'
-        if msg != '':
-            retJsonData(repcd='4001', msg=msg)
 
-        sp = Supply(name=book_info['name'],
-                    mobile=book_info['mobile'],
-                    fast_mail=book_info['fast_mail'],
-                    address=book_info['address'])
-        db.session.add(sp)
-        db.session.flush()
-        db.session.commit()
-        return retJsonData(repcd='0000', msg='请求成功', param={'id':sp.id})
+            msg = ''
+            if not book_info['name']:
+                app.logger.info('params: 缺少参数 %s' % 'name')
+                msg = '缺少参数' + msg + ' name'
+            if not book_info['mobile']:
+                app.logger.info('params: 缺少参数 %s' % 'mobile')
+                msg = msg + ' mobile'
+            if not book_info['fast_mail']:
+                app.logger.info('params: 缺少参数 %s' % 'fast_mail')
+                msg = msg + ' fast_mail'
+            if not book_info['address']:
+                app.logger.info('params: 缺少参数 %s' % 'address')
+                msg = msg + ' address'
+            if msg != '':
+                return retJsonData(repcd='4001', msg=msg)
+
+            sp = Supply(name=book_info['name'],
+                        mobile=book_info['mobile'],
+                        fast_mail=book_info['fast_mail'],
+                        address=book_info['address'])
+            db.session.add(sp)
+            db.session.flush()
+            db.session.commit()
+            return retJsonData(repcd='0000', msg='请求成功', param={'id':sp.id})
+        except KeyError as e:
+            app.logger.info('获取参数异常')
+            app.logger.exception(e)
+        except BaseException as e:
+            db.session.rollback()
+            app.logger.exception(e)
 
