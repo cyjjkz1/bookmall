@@ -49,9 +49,9 @@ class SupplyHandler(Resource):
         if not book_info['mobile']:
             app.logger.info('params: 缺少参数 %s' % 'mobile')
             msg = msg + ' mobile'
-        if not book_info['fast_mail_id']:
-            app.logger.info('params: 缺少参数 %s' % 'fast_mail_id')
-            msg = msg + ' fast_mail_id'
+        if not book_info['fast_mail']:
+            app.logger.info('params: 缺少参数 %s' % 'fast_mail')
+            msg = msg + ' fast_mail'
         if not book_info['address']:
             app.logger.info('params: 缺少参数 %s' % 'address')
             msg = msg + ' address'
