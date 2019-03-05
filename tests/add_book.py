@@ -10,7 +10,7 @@ headers = {
 }
 
 data = {
-    'name':'大卫的圣诞节',
+    'name': '大卫的圣诞节',
     'price': 19.8,
     'postage': 1,
     'details': '大卫在圣诞节许愿想要一辆坦克',

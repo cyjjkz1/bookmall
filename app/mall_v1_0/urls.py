@@ -5,6 +5,7 @@ from flask_restful import Api
 from handlers.book_handler import BookHandler, BookAddImageHandler
 from handlers.category_handler import AddCategoryHandler, CategoryList
 from handlers.supply_handler import SupplyHandler
+from handlers.image_handler import UploadImage
 
 api_1_0 = Blueprint('api_1_0', __name__, url_prefix='/bookmall/v1.0')
 
@@ -13,6 +14,7 @@ api = Api(api_1_0)
 
 api.add_resource(BookHandler, '/book/add', endpoint='add_book')
 api.add_resource(BookAddImageHandler, '/book/img_add', endpoint='img_add')
+api.add_resource(UploadImage, '/image/upload', endpoint='img_upload')
 api.add_resource(SupplyHandler, '/supply/add', endpoint='supply_add')
 api.add_resource(AddCategoryHandler, '/category/add', endpoint='add_category')
 api.add_resource(CategoryList, '/category/query', endpoint='category_query')
